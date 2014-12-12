@@ -16,6 +16,18 @@ gem 'mysql2'
 gem 'puma'
 gem 'sendgrid'
 gem 'simple_form'
+gem 'fog', '1.24.0'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'figaro'
+gem "recaptcha", :require => "recaptcha/rails"
+gem "font-awesome-rails"
+gem 'kaminari'
+gem 'actionview-encoded_mail_to'
+gem 'pageless-rails', github: 'rorlab/pageless-rails'
+
+gem 'pry'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -37,4 +49,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', require: false
 end

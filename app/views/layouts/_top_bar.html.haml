@@ -1,0 +1,43 @@
+%nav.top-bar{ 'data-topbar' => true, role: 'navigation' }
+  %ul.title-area
+    %li.name
+      %h1= link_to "Austin on Rails &middot; Members".html_safe, root_path
+    %li.toggle-topbar.menu-icon
+      = link_to '#' do
+        %span Menu
+
+  %section.top-bar-section
+    %ul.right
+      - if user_signed_in?
+        %li.has-dropdown
+          = link_to '#' do
+            - if current_user.avatar.present?
+              = image_tag(current_user.avatar.tiny, class: 'avatar')
+            - else
+              %i.fa.fa-user
+            %span= current_user.first_name
+          %ul.dropdown
+            %li
+              = link_to edit_user_registration_path do
+                %i.fa.fa-edit
+                %span Edit Account
+            %li
+              = link_to destroy_user_session_path, method: 'delete' do
+                %i.fa.fa-sign-out
+                %span Sign Out
+      - else
+        %li
+          = link_to new_user_session_path do
+            %i.fa.fa-sign-in
+            %span Sign In
+        %li
+          = link_to new_user_registration_path do
+            %i.fa.fa-plus-square
+            %span Join Us
+
+    %ul.left
+      %li
+        = link_to root_path do
+          %i.fa.fa-users
+          %span Members
+

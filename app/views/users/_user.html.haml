@@ -1,0 +1,46 @@
+%li.member
+  .row{ id: "member#{user.id}" }
+    .large-2.columns
+      .avatar= image_tag(user.avatar.profile)
+
+    .large-10.columns
+      %h3.name
+        %span= user.name
+        - if user.email_visible?
+          %small.email
+            = mail_to user.email, encode: :javascript do
+              %i.fa.fa-envelope
+              %span Send Email
+        %small.joined_at
+          Member since #{user.created_at.to_date.to_s(:long)}
+
+      - if user.current_job.present?
+        %h4.job= user.current_job
+
+      %ul.social-networks
+        - if user.website_url.present?
+          %li
+            %span.website
+              %i.fa.fa-link
+              = link_to simple_website_link(user.website_url), user.website_url, target: '_blank'
+        - if user.twitter_url.present?
+          %li
+            %span.twitter-url
+              %i.fa.fa-twitter
+              = link_to "@#{user.twitter_handle.gsub('@','')}", user.twitter_url, target: '_blank'
+        - if user.linkedin_url.present?
+          %li
+            %span.linkedin-url
+              %i.fa.fa-linkedin
+              = link_to simple_linkedin_link(user.linkedin_url), user.linkedin_url, target: '_blank'
+        - if user.github_url.present?
+          %li
+            %span.github-url
+              %i.fa.fa-github
+              = link_to simple_website_link(user.github_url), user.github_url, target: '_blank'
+
+      %p.bio
+        - if user.bio.present?
+          = sanitize(user.bio)
+        - else
+          %em No bio provided.

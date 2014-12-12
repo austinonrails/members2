@@ -1,5 +1,6 @@
 // import the CSS framework
 @import "foundation";
+@import "font-awesome";
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -40,11 +41,11 @@
 // to make views framework-neutral
 main {
   @include twelve-columns;
-  background-color: #eee;
+  // background-color: #fdfdfd;
   }
 section {
   @extend .row;
-  margin-top: 20px;
+  // margin-top: 20px;
   }
 
 // Styles for form views

@@ -1,0 +1,51 @@
+.row
+  .large-12.columns
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', multipart: true } do |f|
+      .large-12.columns
+        %h3 Join AoR Members
+        = devise_error_messages!
+
+      = field_set_tag 'Account Info' do
+        .row
+          .large-3.columns
+            = f.input :first_name, required: true, label: 'First Name', input_html: { class: 'form-control', autofocus: true }
+          .large-3.columns
+            = f.input :last_name, required: true, label: 'Last Name', input_html: { class: 'form-control', autofocus: true }
+          .large-3.columns
+            = f.input :email, required: true, input_html: { class: 'form-control' }
+          .large-3.columns
+            = f.input :email_visible, label: 'Show Email on Site?', input_html: { class: 'form-control' }
+        .row
+          .large-6.columns
+            = f.input :password, input_html: { class: 'form-control' }
+          .large-6.columns
+            = f.input :password_confirmation, input_html: { class: 'form-control' }
+
+      = field_set_tag 'Personal Details' do
+        .row
+          .large-4.columns
+            = f.input :twitter_handle, placeholder: '@somebody', label: "<i class='fa fa-twitter'></i> Twitter Handle".html_safe
+          .large-4.columns
+            = f.input :github_url, label: "<i class='fa fa-github-alt'></i> Github URL".html_safe
+          .large-4.columns
+            = f.input :linkedin_url, label: "<i class='fa fa-linkedin-square'></i> LinkedIn URL".html_safe
+        .row
+          .large-4.columns
+            = f.input :website_url, label: 'Website/Blog URL'
+          .large-8.columns
+            = f.input :current_job, label: 'Current Company/Title/Job', placeholder: 'e.g. Web Developer at Acme Software'
+        .row
+          .large-12.columns
+            = f.input :avatar, as: :file, label: "Avatar Image", input_html: { class: 'panel' }
+            = f.hidden_field :avatar_cache
+        .row
+          .large-12.columns
+            = f.input :bio, label: 'Biography', maxlength: 500, input_html: { rows: 4 }
+
+      = field_set_tag 'Prove Your Humanity' do
+        .row
+          .large-12.columns
+            = recaptcha_tags(display: { theme: 'clean' }, ajax: true)
+
+      .large-12.columns
+        .row= f.button :submit, 'Sign Up', class: 'right'

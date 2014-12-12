@@ -1,0 +1,61 @@
+.row
+  .editform.large-12.columns
+    %h3 Edit #{resource_name.to_s.humanize}
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put, role: 'form' } do |f|
+      = devise_error_messages!
+
+      = field_set_tag 'Account Info' do
+        .row
+          .large-3.columns
+            = f.input :first_name, label: 'First Name', input_html: { class: 'form-control', autofocus: true }
+          .large-3.columns
+            = f.input :last_name, label: 'Last Name', input_html: { class: 'form-control', autofocus: true }
+          .large-3.columns
+            = f.input :email, hint: ("Currently awaiting confirmation for: #{resource.unconfirmed_email}" if devise_mapping.confirmable? && resource.pending_reconfirmation?), input_html: { class: 'form-control' }
+          .large-3.columns
+            = f.input :email_visible, label: 'Show Email on Site?', input_html: { class: 'form-control' }
+
+      = field_set_tag 'Personal Details' do
+        .row
+          .large-2.columns
+            - if current_user.avatar.url.present?
+              = image_tag current_user.avatar.thumb.url, style: 'width:100px; height:100px; float:left; border:1px solid #ccc; background-color: #fff'
+              = f.label :remove_avatar do
+                %span.remover Remove
+                = f.check_box :remove_avatar
+
+          .large-10.columns
+            = f.input :avatar, as: :file, label: "Change Avatar Image", input_html: { class: 'panel' }
+            = f.hidden_field :avatar_cache
+        .row
+          .large-4.columns
+            = f.input :twitter_handle, placeholder: '@somebody', label: "<i class='fa fa-twitter'></i> Twitter Handle".html_safe
+          .large-4.columns
+            = f.input :github_url, label: "<i class='fa fa-github-alt'></i> Github URL".html_safe
+          .large-4.columns
+            = f.input :linkedin_url, label: "<i class='fa fa-linkedin-square'></i> LinkedIn URL".html_safe
+        .row
+          .large-4.columns
+            = f.input :website_url, label: 'Website/Blog URL'
+          .large-8.columns
+            = f.input :current_job, label: 'Current Company/Title/Job', placeholder: 'e.g. Web Developer at Acme Software'
+          /   = f.input :image_url, hint: "Link to an image you'd like to represent you in the members directory"
+        .row
+          .large-12.columns
+            = f.input :bio, label: 'Biography'
+
+      = field_set_tag 'Change Password' do
+        %p Leave these fields blank if you don't want to change your password.
+        = f.input :password, input_html: { autocomplete: 'off', class: 'form-control' }
+        = f.input :password_confirmation, input_html: { class: 'form-control' }
+
+      %fieldset
+        %p You must enter your current password to make changes.
+        = f.input :current_password, input_html: { class: 'form-control' }
+      = f.button :submit, 'Update', class: 'right'
+.row
+  .authform.large-12.columns
+    %h3 Delete Account
+    %p Unhappy? We'll be sad to see you go.
+    = button_to "Delete My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right'
+

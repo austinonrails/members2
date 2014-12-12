@@ -1,0 +1,114 @@
+@import "foundation";
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
+body {
+  background-color: #fdfdfd;
+  font-family: 'PT Sans', sans-serif;
+  color: #333;
+}
+
+p {
+  line-height: 1.3;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #c0392b;
+}
+h1, h3, h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  small {
+    font-weight: 300;
+  }
+}
+
+h3.name {
+  line-height: 1.0;
+  span { color: #7f8c8d; font-size: 150%; }
+  small { font-size: 55%; }
+}
+
+h4.job {
+  font-size: 100%;
+}
+
+#recaptcha_area, #recaptcha_table {
+  table-layout: auto !important;
+}
+
+nav.top-bar .top-bar-section {
+  ul.right {
+    img.avatar { height: 25px; width: 25px; margin-right: 5px; }
+    i { font-size: 125%; }
+  }
+  ul.left li a {
+    i { font-size: 115%; }
+    span { display: none; }
+  }
+}
+
+ol.members-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  >li {
+    margin-bottom: 1em;
+    >.row {
+      background-color: #fff;
+      border-bottom: 1px solid #bdc3c7;
+      padding-top: 1em;
+    }
+    h3.name {
+      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      span { margin-right: 0.1em; }
+    }
+    .email span { display: none; }
+    .joined_at {
+      margin-left: 0.5em;
+      color: #bdc3c7;
+    }
+  }
+  p.bio {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    color: #7f8c8d;
+  }
+  .avatar { margin-bottom: 1em; }
+}
+ul.social-networks {
+  @include inline-list;
+  margin-bottom: 0.5em;
+  li {
+    font-size: 85%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+}
+
+.search-tool {
+  form {
+    input.search, input.button {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      float: right;
+      height: 30px;
+      margin-top: 20px;
+    }
+    input.search {
+      width: 20em;
+      padding-right: 5px;
+    }
+    input.button {
+      font-size: 65%;
+      font-weight: bold;
+      padding: 5px 10px;
+      text-transform: uppercase;
+    }
+  }
+}

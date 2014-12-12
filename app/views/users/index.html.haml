@@ -1,0 +1,23 @@
+.container
+  .row
+    .large-3.columns
+      %h2
+        %i.fa.fa-users
+        %span Members
+    .large-9.columns
+      .search-tool
+        = simple_form_for :search, url: users_path, method: :get do |f|
+          =# f.input :search, as: :search, placeholder: 'Search by name or email...', autofocus: true
+          =# f.button :submit, 'Search'
+          %input.button{ name: "commit", type: "submit", value: "Search" }
+          %input.string.search.required#search_search{ name: "search", placeholder: "Search by name or email...", type: "search", value: params[:search] }
+  .row
+    .large-12.columns
+      .paginator= paginate @users
+
+  .row
+    .large-12.columns
+      %ol.members-list#pageless-members
+        = render @users
+
+= pageless(@users.total_pages, users_path, '#pageless-members')
