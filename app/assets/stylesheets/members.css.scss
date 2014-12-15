@@ -1,11 +1,46 @@
 @import "foundation";
+@import "compass";
+
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 
 body {
-  background-color: #fdfdfd;
+  // background-color: #fdfdfd;
+background-color: rgb(234,183,159); // Old browsers
+@include filter-gradient(#eab79f, #c0392b, horizontal); // IE6-9 fallback on horizontal gradient
+@include background-image(linear-gradient(left bottom, rgba(234,183,159,1) 0%,rgba(231,76,60,1) 44%,rgba(192,57,43,1) 100%));
   font-family: 'PT Sans', sans-serif;
   color: #333;
+}
+
+$submit-button-color: #f39c12;
+$submit-button-hover: #e67e22;
+
+a {
+  color: #e74c3c;
+  &:hover {
+    color: #8e44ad;
+  }
+}
+
+form input.button {
+  color: #fff;
+  background-color: $submit-button-color;
+  transition: none;
+  outline: none;
+  transition: background-color .25s ease-in-out;
+  border-radius: 2px;
+  &:hover {
+    background-color: $submit-button-hover;
+  }
+}
+
+main {
+  background: #fdfdfd;
+}
+
+.alert-box {
+  margin-top: 1em;
 }
 
 p {
@@ -16,6 +51,10 @@ h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   color: #c0392b;
+}
+.subheader h2 {
+  font-weight: 100;
+  color: #fff;
 }
 h1, h3, h4 {
   font-family: 'Lato', sans-serif;
@@ -39,14 +78,18 @@ h4.job {
   table-layout: auto !important;
 }
 
-nav.top-bar .top-bar-section {
-  ul.right {
-    img.avatar { height: 25px; width: 25px; margin-right: 5px; }
-    i { font-size: 125%; }
-  }
-  ul.left li a {
-    i { font-size: 115%; }
-    span { display: none; }
+nav.top-bar {
+  background: none;
+  .top-bar-section {
+    ul, ul li, ul li a:not(.has-form), ul li a:not(.button) { background: none; }
+    ul.right {
+      img.avatar { height: 25px; width: 25px; margin-right: 5px; }
+      i { font-size: 125%; }
+    }
+    ul.left li a {
+      i { font-size: 115%; }
+      span { display: none; }
+    }
   }
 }
 
@@ -59,6 +102,7 @@ ol.members-list {
     >.row {
       background-color: #fff;
       border-bottom: 1px solid #bdc3c7;
+      margin-top: 1em;
       padding-top: 1em;
     }
     h3.name {
@@ -90,6 +134,25 @@ ul.social-networks {
   }
 }
 
+fieldset {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+
+
+
+form.simple_form {
+  input.string, textarea, input.password {
+    outline: none;
+    box-shadow: none;
+  }
+  input:not(.button), textarea {
+    border-radius: 2px;
+  }
+}
+
+
 .search-tool {
   form {
     input.search, input.button {
@@ -103,12 +166,69 @@ ul.social-networks {
     input.search {
       width: 20em;
       padding-right: 5px;
+      border: 0;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
     input.button {
       font-size: 65%;
       font-weight: bold;
       padding: 5px 10px;
       text-transform: uppercase;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
+  }
+}
+
+.reveal-modal {
+  border: 0;
+  padding: 0;
+  background: none;
+  .modal-header{
+    background-color: #c0392b;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    h2 {
+      text-align: center;
+      font-size: 150%;
+      font-weight: 300;
+      color: #fff;
+    }
+  }
+  .content-body {
+    background: #fff;
+    padding: 2em;
+  }
+  .modal-footer {
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: #f5f5f5;
+    color: #878797;
+    padding-bottom: 1em;
+  }
+}
+
+#signin-modal {
+  max-width: 28rem;
+  .input:not(.boolean) label { display: none; }
+  input.button {
+    width: 100%;
+    border-radius: 2px;
+    padding: 0;
+    margin: 0;
+    line-height: 2.5em;
+  }
+  .user_remember_me {
+    margin-top: 0.5em;
+    label input { margin-right: 0.5em }
+  }
+  .new-user, .forgot-password {
+    text-align: center;
+    margin-top: 1em;
+  }
+  .forgot-password {
+    font-size: 80%;
   }
 }

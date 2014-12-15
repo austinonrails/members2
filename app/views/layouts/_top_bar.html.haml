@@ -1,4 +1,4 @@
-%nav.top-bar{ 'data-topbar' => true, role: 'navigation' }
+%nav.top-bar{ 'data-topbar' => true, 'data-no-turbolink' => true, role: 'navigation' }
   %ul.title-area
     %li.name
       %h1= link_to "Austin on Rails &middot; Members".html_safe, root_path
@@ -27,7 +27,7 @@
                 %span Sign Out
       - else
         %li
-          = link_to new_user_session_path do
+          = link_to new_user_session_path, 'data-reveal-id' => 'signin-modal', 'data-reveal-ajax' => true do
             %i.fa.fa-sign-in
             %span Sign In
         %li

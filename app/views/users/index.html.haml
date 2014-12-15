@@ -1,5 +1,5 @@
-.container
-  .row
+= content_for :subheader do
+  .row.subheader
     .large-3.columns
       %h2
         %i.fa.fa-users
@@ -11,6 +11,9 @@
           =# f.button :submit, 'Search'
           %input.button{ name: "commit", type: "submit", value: "Search" }
           %input.string.search.required#search_search{ name: "search", placeholder: "Search by name or email...", type: "search", value: params[:search] }
+
+.container
+
   .row
     .large-12.columns
       .paginator= paginate @users
