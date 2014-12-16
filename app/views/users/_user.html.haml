@@ -8,7 +8,7 @@
         %span= user.name
         - if user.email_visible?
           %small.email
-            = mail_to user.email, encode: :javascript do
+            = mail_to user.email, nil, encode: :javascript do
               %i.fa.fa-envelope
               %span Send Email
         %small.joined_at
@@ -21,23 +21,27 @@
         - if user.website_url.present?
           %li
             %span.website
-              %i.fa.fa-link
-              = link_to simple_website_link(user.website_url), user.website_url, target: '_blank'
+              = link_to user.website_url, target: '_blank' do
+                %i.fa.fa-link
+                %span= simple_website_link(user.website_url)
         - if user.twitter_url.present?
           %li
             %span.twitter-url
-              %i.fa.fa-twitter
-              = link_to "@#{user.twitter_handle.gsub('@','')}", user.twitter_url, target: '_blank'
+              = link_to user.twitter_url, target: '_blank' do
+                %i.fa.fa-twitter
+                %span= "@#{user.twitter_handle.gsub('@','')}"
         - if user.linkedin_url.present?
           %li
             %span.linkedin-url
-              %i.fa.fa-linkedin
-              = link_to simple_linkedin_link(user.linkedin_url), user.linkedin_url, target: '_blank'
+              = link_to user.linkedin_url, target: '_blank' do
+                %i.fa.fa-linkedin
+                %span= simple_linkedin_link(user.linkedin_url)
         - if user.github_url.present?
           %li
             %span.github-url
-              %i.fa.fa-github
-              = link_to simple_website_link(user.github_url), user.github_url, target: '_blank'
+              = link_to user.github_url, target: '_blank' do
+                %i.fa.fa-github
+                %span= simple_website_link(user.github_url)
 
       %p.bio
         - if user.bio.present?

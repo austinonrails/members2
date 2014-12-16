@@ -1,14 +1,12 @@
 = content_for :subheader do
   .row.subheader
-    .large-3.columns
+    .large-4.columns
       %h2
         %i.fa.fa-users
-        %span Members
-    .large-9.columns
+        %span Our Members
+    .large-8.columns
       .search-tool
         = simple_form_for :search, url: users_path, method: :get do |f|
-          =# f.input :search, as: :search, placeholder: 'Search by name or email...', autofocus: true
-          =# f.button :submit, 'Search'
           %input.button{ name: "commit", type: "submit", value: "Search" }
           %input.string.search.required#search_search{ name: "search", placeholder: "Search by name or email...", type: "search", value: params[:search] }
 

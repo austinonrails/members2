@@ -1,7 +1,8 @@
-%nav.top-bar{ 'data-topbar' => true, 'data-no-turbolink' => true, role: 'navigation' }
+%nav.top-bar{ 'data-topbar' => true, role: 'navigation' }
   %ul.title-area
     %li.name
-      %h1= link_to "Austin on Rails &middot; Members".html_safe, root_path
+      %h1
+        = link_to "Austin on Rails".html_safe, root_path
     %li.toggle-topbar.menu-icon
       = link_to '#' do
         %span Menu

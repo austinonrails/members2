@@ -6,9 +6,9 @@
 
 body {
   // background-color: #fdfdfd;
-background-color: rgb(234,183,159); // Old browsers
-@include filter-gradient(#eab79f, #c0392b, horizontal); // IE6-9 fallback on horizontal gradient
-@include background-image(linear-gradient(left bottom, rgba(234,183,159,1) 0%,rgba(231,76,60,1) 44%,rgba(192,57,43,1) 100%));
+  background-color: #c0392b; // Old browsers
+  @include filter-gradient(#eab79f, #c0392b, horizontal); // IE6-9 fallback on horizontal gradient
+  @include background-image(linear-gradient(left bottom, rgba(234,183,159,1) 0%,rgba(231,76,60,1) 44%,rgba(192,57,43,1) 100%));
   font-family: 'PT Sans', sans-serif;
   color: #333;
 }
@@ -80,6 +80,10 @@ h4.job {
 
 nav.top-bar {
   background: none;
+  h1 {
+    background: asset-url("aorlogo-tiny.png") 4px 2px no-repeat;
+    padding-left: 40px;
+  }
   .top-bar-section {
     ul, ul li, ul li a:not(.has-form), ul li a:not(.button) { background: none; }
     ul.right {
@@ -88,7 +92,7 @@ nav.top-bar {
     }
     ul.left li a {
       i { font-size: 115%; }
-      span { display: none; }
+      // span { display: none; }
     }
   }
 }
@@ -111,10 +115,14 @@ ol.members-list {
       margin-bottom: 0;
       span { margin-right: 0.1em; }
     }
-    .email span { display: none; }
+    .email {
+      i { font-size: 120%; }
+      span { display: none; }
+    }
     .joined_at {
       margin-left: 0.5em;
       color: #bdc3c7;
+      white-space: nowrap;
     }
   }
   p.bio {
@@ -131,6 +139,10 @@ ul.social-networks {
     font-size: 85%;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+    margin-right: 1em;
+    span a {
+      white-space: nowrap;
+    }
   }
 }
 
@@ -143,15 +155,31 @@ fieldset {
 
 
 form.simple_form {
-  input.string, textarea, input.password {
+  input.string, textarea, input.password, input[type="file"] {
     outline: none;
     box-shadow: none;
+    border-color: #bdc3c7;
   }
   input:not(.button), textarea {
     border-radius: 2px;
   }
+  .input.error {
+    input:not(.button), textarea, input.password, input[type="file"] {
+      border-color: #f04124;
+    }
+  }
 }
 
+#error_explanation {
+  border: 1px solid #f04124;
+  border-radius: 4px;
+  background-color: #fff3f4;
+  h2, li { color: #c0392b; }
+  h2 { font-size: 120%; }
+  li { font-size: 80%; line-height: 1.4em; }
+  margin-top: 1em;
+  padding: 0.5em 1em 0 1em;
+}
 
 .search-tool {
   form {
@@ -230,5 +258,83 @@ form.simple_form {
   }
   .forgot-password {
     font-size: 80%;
+  }
+}
+
+::-webkit-input-placeholder {
+   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+   font-weight: 200;
+   color: #ccc;
+}
+
+:-moz-placeholder {
+   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+   font-weight: 200;
+   color: #ccc;
+}
+
+::-moz-placeholder {
+   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+   font-weight: 200;
+   color: #ccc;
+}
+
+:-ms-input-placeholder {
+   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+   font-weight: 200;
+   color: #ccc;
+}
+
+#user-form {
+  input:not(.button), textarea {
+   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+   font-weight: 200;
+   color: #7f8c8d;
+  }
+  label {
+    color: #666;
+  }
+  fieldset {
+    background: #fff;
+    legend {
+      background: none;
+      position: relative;
+      top: 15px;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      font-family: "Lato", sans-serif;
+      font-weight: 100;
+      color: #aaa;
+    }
+  }
+  .panel {
+    background: #ecf0f1;
+  }
+  .input { margin-bottom: 0.5em; }
+  input:not(.button), textarea, input[type="file"] {
+    margin-bottom: 0;
+    background: #fff;
+    &:focus {
+      background: #fff;
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: 0 0 4px #ccc;
+      }
+    }
+  }
+  input[type="file"] {
+    background: #ecf0f1;
+  }
+  .user_email_visible {
+    label input { margin-right: 0.5em; }
+  }
+  #recaptcha_table {
+    td {
+      background: #ecf0f1;
+    }
+    input {
+      border-color: #bdc3c7 !important;
+    }
   }
 }

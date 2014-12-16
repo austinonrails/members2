@@ -1,9 +1,13 @@
-.row
+= content_for :subheader do
+  .row.subheader
+    .large-12.columns
+      %h2
+        %i.fa.fa-users
+        %span Edit Account
+#user-form.row
   .editform.large-12.columns
-    %h3 Edit Account
     = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put, role: 'form' } do |f|
       = devise_error_messages!
-
       = field_set_tag 'Account Info' do
         .row
           .large-3.columns
