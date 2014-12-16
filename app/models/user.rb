@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   validates :bio, length: { maximum: 500 }
 
   scope :name_search_for, ->(text) {
-    where("first_name LIKE '#{text}%' OR last_name LIKE '#{text}%' OR email LIKE '#{text}%'")
+    # where("first_name ILIKE '#{text}%' OR last_name ILIKE '#{text}%' OR email ILIKE '#{text}%'")
+    where("first_name ILIKE '#{text}%' OR last_name ILIKE '#{text}%'")
   }
 
 

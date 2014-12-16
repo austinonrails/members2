@@ -5,10 +5,7 @@
         %i.fa.fa-users
         %span Our Members
     .large-8.columns
-      .search-tool
-        = simple_form_for :search, url: users_path, method: :get do |f|
-          %input.button{ name: "commit", type: "submit", value: "Search" }
-          %input.string.search.required#search_search{ name: "search", placeholder: "Search by name or email...", type: "search", value: params[:search] }
+      = render 'users/search'
 
 .container
 
