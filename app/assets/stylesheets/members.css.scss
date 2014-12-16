@@ -238,6 +238,20 @@ form.simple_form {
   }
 }
 
+label.required abbr {
+  color: #f00;
+}
+
+input.button {
+  border-radius: 2px;
+  &.full {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 2.5em;
+  }
+}
+
 #signin-modal {
   max-width: 28rem;
   .input:not(.boolean) label { display: none; }
@@ -296,6 +310,8 @@ form.simple_form {
   }
   fieldset {
     background: #fff;
+    margin-bottom: 0;
+    margin-top: 0.3em;
     legend {
       background: none;
       position: relative;
@@ -329,6 +345,7 @@ form.simple_form {
   .user_email_visible {
     label input { margin-right: 0.5em; }
   }
+  input.button { margin-top: 1em; }
   #recaptcha_table {
     td {
       background: #ecf0f1;

@@ -1,0 +1,14 @@
+= content_for :subheader do
+  .row.subheader
+    .large-12.columns
+      %h2
+        %i.fa.fa-key
+        %span Password Reset
+.authform
+  = simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form'} do |f|
+    %h3 Forgot your password?
+    %p We&rsquo;ll send password reset instructions.
+    = devise_error_messages!
+    .form-group
+      = f.input :email, autofocus: true
+    = f.button :submit, 'Reset Password', class: 'full'
