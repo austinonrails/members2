@@ -17,6 +17,8 @@
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
+
       - unless current_user.try(:signed_in?)
         #signin-modal.reveal-modal{ 'data-reveal' => true }
+
 

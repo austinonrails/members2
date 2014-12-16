@@ -6,13 +6,13 @@
     .large-10.columns
       %h3.name
         %span= user.name
-        - if user.email_visible?
+        - if user.email_visible? && user_signed_in?
           %small.email
             = mail_to user.email, nil, encode: :javascript do
               %i.fa.fa-envelope
               %span Send Email
         %small.joined_at
-          Member since #{user.created_at.to_date.to_s(:long)}
+          Member since #{user.created_at.to_date.strftime("%B %Y")}
 
       - if user.current_job.present?
         %h4.job= user.current_job

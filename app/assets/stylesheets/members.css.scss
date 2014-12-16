@@ -80,6 +80,11 @@ h4.job {
 
 nav.top-bar {
   background: none;
+  .title-area {
+    .name h1 a {
+      text-shadow: 1px 1px 3px rgba(84, 7, 2, 1);
+    }
+  }
   h1 {
     background: asset-url("aorlogo-tiny.png") 4px 2px no-repeat;
     padding-left: 40px;

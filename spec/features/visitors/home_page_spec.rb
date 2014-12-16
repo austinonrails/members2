@@ -15,7 +15,7 @@ feature 'Home page' do
 
   scenario 'users index is the home page' do
     visit root_path
-    expect(page).to have_content 'Users'
+    expect(page).to have_content 'Members'
   end
 
 end

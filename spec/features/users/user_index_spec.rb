@@ -15,11 +15,11 @@ feature 'User index page', :devise do
   #   Given I am signed in
   #   When I visit the user index page
   #   Then I see my own email address
-  scenario 'user sees own email address' do
-    user = FactoryGirl.create(:user)
+  scenario 'user sees own email address (encoded)' do
+    user = FactoryGirl.create(:user, email_visible: true)
     login_as(user, scope: :user)
     visit users_path
-    expect(page).to have_content user.email
+    expect(page.html).to match(/<script id=\"mail_to\-.+\">/)
   end
 
 end
