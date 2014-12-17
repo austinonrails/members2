@@ -55,6 +55,11 @@ h2 {
 .subheader h2 {
   font-weight: 100;
   color: #fff;
+  small {
+    color: #fff;
+    @include opacity(0.5);
+    font-size: 40%;
+  }
 }
 h1, h3, h4 {
   font-family: 'Lato', sans-serif;
@@ -100,6 +105,22 @@ nav.top-bar {
       // span { display: none; }
     }
   }
+}
+
+.row.search-results {
+  margin-top: 1em;
+  background-color: #fff;
+  color: #ccc;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: normal;
+  font-size: 80%;
+  font-style: italic;
+  padding: 5px 10px;
+}
+
+.picker {
+  font-size: 12px;
+  button { color: #333; }
 }
 
 ol.members-list {
@@ -309,6 +330,16 @@ input.button {
    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
    font-weight: 200;
    color: #7f8c8d;
+  }
+  .input.email {
+    margin-bottom: 2px;
+  }
+  input.datepicker {
+    // max-width: 210px !important;
+    clear: both;
+  }
+  .input.user_email_visible label {
+    font-size: 70%;
   }
   label {
     color: #666;

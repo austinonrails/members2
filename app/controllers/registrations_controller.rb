@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   USER_METADATA_FIELDS = [
     :email_visible, :website_url, :github_url, :linkedin_url, :current_job,
     :twitter_handle, :image_url, :bio, :avatar, :avatar_cache, :remove_avatar,
-    :remote_avatar_url
+    :remote_avatar_url, :joined_aor_on
   ]
 
   def create

@@ -16,9 +16,11 @@
             .large-3.columns
               = f.input :last_name, required: true, label: 'Last Name', input_html: { class: 'form-control', autofocus: true }
             .large-3.columns
-              = f.input :email, required: true, input_html: { class: 'form-control' }
-            .large-3.columns
-              = f.input :email_visible, label: 'Show Email on Site?', input_html: { class: 'form-control' }
+              = f.input :email, required: true, input_html: { class: 'email form-control' }
+              = f.input :email_visible, label: 'Visible? (to other members only)', input_html: { checked: false, class: 'form-control' }
+            .large-3.columns.collapse
+              = f.input :joined_aor_on, as: :string, label: 'Date you joined AoR?', input_html: { value: Date.today.strftime("%Y/%m/%d"), class: 'datepicker' }
+            .large
           .row
             .large-6.columns
               = f.input :password, input_html: { class: 'form-control' }

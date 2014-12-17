@@ -4,6 +4,7 @@
       %h2
         %i.fa.fa-users
         %span Our Members
+        %small= number_with_delimiter(@members_count)
     .large-8.columns
       = render 'users/search'
 
@@ -16,6 +17,18 @@
   .row
     .large-12.columns
       %ol.members-list#pageless-members
-        = render @users
+        - if @users.empty?
+          %li.member
+            .row
+              .large-12.columns
+                %p No members found.
+        - else
+          - if params[:search]
+            .row.search-results
+              .large-12.columns
+                %span
+                  Found #{number_with_delimiter(@users.total_count)} #{"member".pluralize(@users.total_count)} matching
+                  %strong #{params[:search]}
+          = render @users
 
 = pageless(@users.total_pages, users_path, '#pageless-members')

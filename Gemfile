@@ -26,6 +26,7 @@ gem "font-awesome-rails"
 gem 'kaminari'
 gem 'actionview-encoded_mail_to'
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
+gem 'pickadate-rails'
 
 gem 'pry'
 

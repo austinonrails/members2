@@ -12,7 +12,7 @@
               %i.fa.fa-envelope
               %span Send Email
         %small.joined_at
-          Member since #{user.created_at.to_date.strftime("%B %Y")}
+          Member since #{user.aor_join_date.strftime("%B %Y")}
 
       - if user.current_job.present?
         %h4.job= user.current_job

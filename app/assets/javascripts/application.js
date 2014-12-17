@@ -13,7 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require pickadate/picker
+//= require pickadate/picker.date
 //= require_tree .
 $(function() {
+
   $(document).foundation();
+
+  $('.datepicker').pickadate({
+    format: 'yyyy/mm/dd',
+  });
+
 });

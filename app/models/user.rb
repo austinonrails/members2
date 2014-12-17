@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   scope :name_search_for, ->(text) {
     # where("first_name ILIKE '#{text}%' OR last_name ILIKE '#{text}%' OR email ILIKE '#{text}%'")
-    where("first_name ILIKE '#{text}%' OR last_name ILIKE '#{text}%'")
+    where("first_name ILIKE '#{text}%' OR last_name ILIKE '#{text}%'").
+      where.not(confirmed_at: nil)
   }
 
 
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
     return nil unless twitter_handle.present?
     handle = twitter_handle.gsub('@','')
     "https://twitter.com/#{handle}"
+  end
+
+  def aor_join_date
+    self.try(:joined_aor_on) || self.created_at.to_date
   end
 
 
