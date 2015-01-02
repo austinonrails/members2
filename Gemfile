@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
-gem 'rails', '4.1.8'
+# gem 'rails', '4.1.8'
+gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.5'
 gem 'haml-rails'
 # gem 'mysql2'
 gem 'pg'
@@ -27,6 +28,7 @@ gem 'kaminari'
 gem 'actionview-encoded_mail_to'
 gem 'pageless-rails', github: 'rorlab/pageless-rails'
 gem 'pickadate-rails'
+gem 'gravatarify', '~> 3.0.0'
 
 gem 'pry'
 

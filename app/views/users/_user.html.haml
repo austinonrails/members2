@@ -1,7 +1,11 @@
 %li.member
   .row{ id: "member#{user.id}" }
     .large-2.columns
-      .avatar= image_tag(user.avatar.profile)
+      .avatar
+        - if user.avatar.present?
+          = image_tag(user.avatar.profile)
+        - else
+          = gravatar_tag user.email, size: 137, default: "mm"
 
     .large-10.columns
       %h3.name
