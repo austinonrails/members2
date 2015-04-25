@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ambethia/recaptcha.git
+  revision: 688b72ccbea074454b0591ec0aefed3448c37df1
+  specs:
+    recaptcha (0.4.0)
+
+GIT
   remote: git://github.com/rorlab/pageless-rails.git
   revision: 6bc646321b139846f7db7679e57992973d8f36ed
   specs:
@@ -245,7 +251,6 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
-    recaptcha (0.3.6)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rspec-core (3.1.7)
@@ -353,7 +358,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rails_12factor
   rails_layout
-  recaptcha
+  recaptcha!
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

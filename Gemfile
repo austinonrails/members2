@@ -22,7 +22,7 @@ gem 'fog', '1.24.0'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'figaro'
-gem "recaptcha", :require => "recaptcha/rails"
+gem "recaptcha", github: "ambethia/recaptcha"
 gem "font-awesome-rails"
 gem 'kaminari'
 gem 'actionview-encoded_mail_to'
