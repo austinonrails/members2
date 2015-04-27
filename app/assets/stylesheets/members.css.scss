@@ -64,6 +64,7 @@ h2 {
 h1, h3, h4 {
   font-family: 'Lato', sans-serif;
   font-weight: 100;
+  color: #000;
   small {
     font-weight: 300;
   }
@@ -71,7 +72,7 @@ h1, h3, h4 {
 
 h3.name {
   line-height: 1.0;
-  span { color: #7f8c8d; font-size: 150%; }
+  span { color: #303536; font-size: 150%; }
   small { font-size: 55%; }
 }
 
@@ -154,7 +155,7 @@ ol.members-list {
   p.bio {
     font-family: "Lato", sans-serif;
     font-weight: 100;
-    color: #7f8c8d;
+    color: #303536;
   }
   .avatar { margin-bottom: 1em; }
 }
